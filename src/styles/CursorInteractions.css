@@ -1,0 +1,96 @@
+/* Click Spark Effect */
+.click-spark {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+.spark-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(30px);
+  animation: sparkExplode 0.6s ease-out forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+
+@keyframes sparkExplode {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(50px) scale(0.5);
+  }
+}
+
+/* Floating Cubes */
+.floating-cube {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(var(--rotation));
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+  opacity: 0.6;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  animation: cubeFloat 3s ease-out forwards;
+}
+
+@keyframes cubeFloat {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1) translateY(0);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 180deg)) scale(0.8) translateY(-30px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 360deg)) scale(0.5) translateY(-60px);
+  }
+}
+
+/* Antigravity Particles */
+.antigravity-particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  animation: antigravityFloat 2s ease-out forwards;
+}
+
+@keyframes antigravityFloat {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.2) translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) translateY(-40px);
+  }
+}
+
+/* Hide on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .click-spark,
+  .floating-cube,
+  .antigravity-particle {
+    display: none;
+  }
+}
+

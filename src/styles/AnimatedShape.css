@@ -1,0 +1,21 @@
+.animated-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape-circle {
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-300), var(--blue-500));
+}
+
+.shape-square {
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gray-300), var(--gray-500));
+  transform: rotate(45deg);
+}
+
+.shape-triangle {
+  position: relative;
+}
+
